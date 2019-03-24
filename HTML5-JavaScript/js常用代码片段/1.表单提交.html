@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>表单提交</title>
+  </head>
+  <body>
+<form action="EmpServlet" onsubmit="return check(this)" method="post">
+	用户名：<input type="text" name="name"/>
+	密码：<input type="text" name="psw"/>
+	<input type="submit" value="提交" class=".login_btn" />
+</form>
+<script type="text/javascript">
+function check(obj){
+	if(obj.name.value==''){
+        alert("请输入用户名");
+        return false;
+    }
+	if(obj.psw.value==''){
+        alert("请输入密码");
+        return false;
+    }
+	}
+</script>
+  </body>
+</html>

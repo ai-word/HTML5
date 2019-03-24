@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数组去重</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+//1.filter(数组去重)过滤出数组中你想要的元素， 不改变原数组  (indexof)
+			var arr = [115, 22, 22, 554, 95, 884, 56, 115, 22];
+			var oarr = arr.filter(function(v, i) {
+				return arr.indexOf(v) == i
+			});
+			document.write(oarr+"<br />")
+
+//2.map(数组去重)通过指定函数处理数组每个元素，并返回处理后的数组(push)
+			var arr=[115, 22, 22, 554, 95, 884, 56, 115, 22];
+				var newarr=[];
+				arr.map(function(v,i){
+					if(arr.indexOf(arr[i])==i){
+						newarr.push(v);
+					}
+				});
+				document.write(newarr+"<br />");
+
+//3.indexOf(数组去重)搜索数组中的元素，并返回它所在的位置。(push)
+			var arr = [115, 22, 22, 554, 95, 884, 56, 115, 22];
+			var oarr = [];
+			for(var i = 0; i < arr.length; i++) {
+				if(oarr.indexOf(arr[i]) == -1) {
+					oarr.push(arr[i])
+				}
+			}
+			document.write(oarr+"<br />")
+
+//4.splice(数组去重一个数与多个数字比)对数组进行删除、插入、替换，是最强大的数组方法。
+		var arr=[115,22,22,554,95,884,56,115,22]
+		for(var i=0;i<arr.length;i++){
+			for(var j=i+1;j<arr.length;j++){//一个数与多个数相比
+				if(arr[i]==arr[j]){
+					arr.splice(j,1);
+					j--;
+				}
+			}
+		}
+		document.write(arr+"<br />")
+
+//5.push(数组去重一一对比)添加到数组末尾
+			var arr=[115,22,22,554,95,884,56,115,22,]
+			function abc(arr){
+			var oarr=[];
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+						if(arr[i]==oarr[j]){
+							break;}
+					}
+				if(arr[i]!=oarr[j]){
+						oarr.push(arr[i])
+				}
+
+			}return oarr
+			}document.write(abc(arr)+"<br />")
+
+
+ //6.数据结构Set类似于数组，但是成员的值都是唯一的，没有重复的值。用set.size表示伪数组长度
+			var arr = [115,22,22,554,95,884,56,115,22,];
+			var set = new Set(arr);
+			var newArr = new Array(...set);
+			document.write(newArr+"<br />");
+
+
+//------------------------------- js将一位数组分割成每三个一组--------------------------------------//
+//实际开发过程中有时后端传的数据不是我们想要的我们需要自己解析，那么数组分割必不可以，
+//适应场景：后端传来很多数据需要我们按照一行4个做展示，我们就需要对数据进行分割处理，
+var state = ['法国','澳大利亚','智利','新西兰','西班牙','加拿大','阿根廷','比利时','德国'];
+
+//数组分割方法（建议使用）
+	function chunk(arr,size){
+		var arr1=[]
+		for(var i = 0;i<arr.length;i=i+size){
+			var arr2 = arr;
+			arr1.push(arr2.slice(i,i + size));
+		}
+		return arr1;
+	};
+	//调用方法
+	var b = chunk(state,4)
+	console.log(b)
+
+//循环复制方法
+	var b = [];
+	var result = [];
+	var k = 0;
+	for(var i = 0; i<state.length; ++i){
+		if(i%3 == 0){
+			b = [];
+			for(var j = 0; j<3; ++j){
+				if(state[i+j] == undefined){
+					continue;
+				} else{
+					b[j] = state[i+j];
+				}
+			}
+			result[k] = b;
+			k++;
+		}
+
+	}
+	console.log(result);
+
+//数组重组(数据转换)
+var data1 = [
+        {img:'/Template/mobile/weui/Demo/img/1.jpg'},
+        {img:'/Template/mobile/weui/Demo/img/2.jpg'},
+        {img:'/Template/mobile/weui/Demo/img/3.jpg'},
+        {img:'/Template/mobile/weui/Demo/img/4.jpg'},
+    ];
+
+function transform(arr,size){
+	var arr1=[]
+	for(var i = 0;i<arr.length;i=i+size){
+		if(arr[i+1]){
+		//如果想要截三个代码需要调整（请自行研究，方法就是这样）
+		//判断条件也要更多，需要判断，多出一个，多出两个的情况，方法与2次一样
+		//arr1.push({img:arr[i].img,img1:arr[i+size-2].img,img2:arr[i+size-1].img})
+		arr1.push({img:arr[i].img,img1:arr[i+1].img})
+		}else{
+		arr1.push({img:arr[i].img})
+		}
+	}
+	return arr1;
+};
+
+//调用方法（上述方法只适应于下面这种情况，及两两重组）
+var arr = transform(data1,2)
+console.log(arr)
+//打印出
+arr=[
+	{img:'/Template/mobile/weui/Demo/img/1.jpg',img1:'/Template/mobile/weui/Demo/img/2.jpg'},
+	{img:'/Template/mobile/weui/Demo/img/3.jpg',img1:'/Template/mobile/weui/Demo/img/4.jpg'},
+    ]
+
+//有关知识点总结：
+//push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。
+//arrayObject.push(newelement1,newelement2,....,newelementX)
+//push() 方法可把它的参数顺序添加到 arrayObject 的尾部。它直接修改 arrayObject，而不是创建一个新的数组。
+//push() 方法和 pop() 方法使用数组提供的先进后出栈的功能。
+//slice() 方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。
+//stringObject.slice(start,end)
+//start	要抽取的片断的起始下标。如果是负数，则该参数规定的是从字符串的尾部开始算起的位置。
+//也就是说，-1 指字符串的最后一个字符，-2 指倒数第二个字符，以此类推。
+//end紧接着要抽取的片段的结尾的下标。若未指定此参数，则要提取的子串包括 start 到原字符串结尾的字符串。
+//如果该参数是负数，那么它规定的是从字符串的尾部开始算起的位置。
+		</script>
+	</body>
+
+</html>

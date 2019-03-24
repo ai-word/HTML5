@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数组排序</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+//sort(排序)字母表排列。非字母表排列必须传比较函数做参数。
+      //简写sort形式	document.write([9, 6, 8, 5, 1, 4, 2].sort.(function a(a,b){return a-b}))
+	    function sortNumber(a, b) {
+				return a - b
+			}
+			var arr = new Array(6)
+			arr[0] = "9"
+			arr[1] = "6"
+			arr[2] = "8"
+			arr[3] = "5"
+			arr[4] = "1"
+			arr[5] = "4"
+			document.write(arr.sort(sortNumber)+'<br />')
+
+
+//冒泡排序
+		//第一种  循环嵌套    外循环逐个比较内循环
+		//第二种  循环嵌套    内循环利用下标自行比较   外循环代表次数
+		//第三种  循环嵌套    交换的索引,每一次都会排序最大一位移到最后。
+			var arr=[9, 6, 8, 5, 1, 4];
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(arr[i]<arr[j]){
+						var temp=arr[i];
+						arr[i]=arr[j];
+						arr[j]=temp;
+					}
+				}
+			}
+			document.write(arr+'<br />');
+
+			var arr = [9, 6, 8, 5, 1, 4];
+			for(var i = 0; i < arr.length - 1; i++) {
+				for(var j = 0; j < arr.length-i; j++) { //减去1表示i前面确定的值不用比较   你也可以不减
+					if(arr[j] > arr[j + 1]) { //前一个大于后一个
+						var temp = arr[j]; //换位子把大的存到空的容器上
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp //交换
+					}
+				}
+			}
+			document.write(arr+'<br />')
+
+			var arr=[9, 6, 8, 5, 1, 4];
+			for(var i=0;i<arr.length;i++){
+				for(var j=i+1;j<arr.length;j++){
+					if(arr[i]>arr[j]){
+						var temp=arr[i];
+						arr[i]=arr[j];
+						arr[j]=temp;
+					}
+				}
+			}
+			document.write(arr+'<br />');
+
+//选择排序
+			var arr=[9, 6, 8, 5, 1, 4];
+			for(var i=0;i<arr.length;i++){
+				var minIndex=i;//minIndex:假设最小值下标，下标是变化的。
+				for(var j=i+1;j<arr.length;j++){
+					if(arr[j]<arr[minIndex]){//如果arr[j]的值比最小值还小，arr[j]就是最小值，j就是最小的索引
+						minIndex=j;	//j就是最小的索引
+					}
+				}
+				if(minIndex!=i){//如果假设的不是是最小值，交换
+					var temp=arr[i];
+					arr[i]=arr[minIndex];
+					arr[minIndex]=temp;
+				}
+			}
+			document.write(arr+'<br />');
+
+//快速排序：递归。可剔除非字符
+			var arr=[9, 6, 8, 5, 1, 4];
+			function quicksort(array){//array:形参。
+				var left=[];//局部，从新开始
+				var right=[];
+				if(Array.isArray(array)){
+					if(array.length<=1){
+						return array;//也是数组。输出concat()
+					}
+					var midIndex=Math.floor(array.length/2);//获取中间值的索引
+					var midValue=array.splice(midIndex,1);//截取中间值。改变原数组
+					for(var i=0;i<array.length;i++){
+						if(array[i]<midValue){
+							left.push(array[i]);
+						}else{
+							right.push(array[i]);
+						}
+					}
+					return quicksort(left).concat(midValue,quicksort(right));
+
+				}else{
+					alert('非法操作');
+				}
+			}
+			document.write(quicksort(arr)+'<br />');
+		</script>
+	</body>
+
+</html>

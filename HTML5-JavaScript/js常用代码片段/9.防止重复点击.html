@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>防止重复点击</title>
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+  </head>
+  <body>
+    <input type="button" id="submit" value="提交">
+<script>
+$(document).ready(function(){
+  $("#submit").click(function(){
+    var nowTime = new Date().getTime();
+    var clickTime = $(this).attr("ctime");
+    if( clickTime != 'undefined' && (nowTime - clickTime < 5000)){
+        alert('操作过于频繁，稍后再试');
+        return false;
+     }else{
+        $(this).attr("ctime",nowTime);
+        alert('提交成功');
+     }
+   });
+ });
+</script>
+  </body>
+</html>

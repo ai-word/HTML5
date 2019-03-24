@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>表单提交</title>
+  </head>
+  <body>
+    <div class="warp">
+    <h2>登录到pfan空间</h2>
+    <p>这里有更多的知识分享，交流。</p>
+    <form action="/register" method = "post" >
+        <input type="text" name = "username" placeholder = "请输入注册用户名">  <br />
+        <input type="password" name = "pwd" placeholder = "请输入初始密码"> <br />
+        <input type="password" name = "aginpwd" placeholder = "请再次输入密码"> <br />
+        <input type="submit" value ="注册" class="login_btn">
+    </form>
+</div>
+<script>
+    var form = document.forms[0],
+        submit = document.querySelector(".login_btn"),
+        inputBtn = document.getElementsByTagName("input");
+        console.log(form);
+    form.addEventListener("submit",function(e){
+        if(inputBtn[0].value == ""){
+            alert("请您认真填写注册用户名！");
+            e.preventDefault();
+        }else if(inputBtn[1].value == ""){
+            alert("请您认真输入初始密码！");
+            e.preventDefault();
+        }else if(inputBtn[2].value == ""){
+            alert("请您再次输入密码");
+            e.preventDefault();
+        }else if(inputBtn[1].value != inputBtn[2].value){
+            alert("两次密码输入不匹配，请更正！");
+            e.preventDefault();
+        }
+    },false);
+
+</script>
+  </body>
+</html>

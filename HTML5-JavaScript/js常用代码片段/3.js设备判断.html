@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8" >
+        <title>Insert title here</title>
+    </head>
+    <body>
+
+        <script>
+        //js判断是否是苹果设备
+        function checkIsAppleDevice() {
+            var u = navigator.userAgent, app = navigator.appVersion;
+            var ios = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+            var iPad = u.indexOf('iPad') > -1;
+            var iPhone = u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1;
+            if (ios || iPad || iPhone) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        //js判断是否为Android设备
+        function checkIsAndroidDevice() {
+            var u = navigator.userAgent;
+            if (u.indexOf('Android') > -1 || u, indexOf('Adr') > -1 ){
+              return true;
+            }else{
+                return false;
+            }
+        }
+
+        //判断设备，跳转应用市场
+        if (checkIsAppleDevice()) {
+            window.location.href = "https://itunes.apple.com/us/app/998dian-wan-cheng/id1135278767?mt=8";//跳转到AppStore或者Android应用市场
+        } else {
+            window.location.href = "http://mbdownload.998dw.net/998dwcPackage/android/demo.apk";//打开apk
+        }
+        //js判断终端访问
+        function checkIsTerminal() {
+            var u = navigator.userAgent;
+            trident = u.indexOf('Trident') > -1;//IE内核
+            presto = u.indexOf('Presto') > -1;//opera内核
+            webkit = u.indexOf('AppleWebKit') > -1;
+            //苹果。谷歌内核
+            gecko = u.indexOf('Gecko') > -1;//火狐内核
+            mobile = !!u.match(/AppleWebjit.*Mobile,*/);//移动终端
+            android = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//Android终端
+            ios = !!u.match(/\(i[^;]( U;)? CPU.+Mac OS X/);//ios终端
+            iphone = u.indexOf('iPhone') > -1;//iPhone或者QQHD浏览器
+            ipad = u.indexOf('iPad') > -1;//iPad
+            webapp = u.indexOf('Safari') == -1;//web应用程序没有头部与底部
+            weixin = u.indexOf('MicroMessenger') > -1;//微信
+            qq = u.match(/\sQQ/i) == "qq";//QQ
+
+            //使用方法
+            if (browser.versions.trident) { alert("Is IE"); }//判断是否为IE内核
+            if (browser.versions.webkit) { alert(Is Webkit); }//判断是否为webKit内核
+            if (browser.versions.mobile || browser.versions.android || browser.versions.ios) { alert("移动端"); }//判断是否为移动端
+
+            //检测浏览器语音
+            currentLang = naviagtor.language;//判断除ie外其他浏览器使用语音
+            if (!currentLang) {//判断IE浏览器语音
+                currentLang = navigator.browserLanguage;
+            }
+            //ios调转
+            if (checkIsAppleDevice()) {
+                window.location.href = "https://itunes.apple.com/us/app/998dian-wan-cheng/id1135278767?mt=8";//跳转到AppStore
+            } else {
+                window.location.href = "http://mbdownload.998dw.net/998dwcPackage/android/DWC_GW.apk";//打开apk
+            }
+
+            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                //alert(navigator.userAgent);
+                window.location.href = "iPhone.html";
+            } else if (/(Android)/i.test(navigator.userAgent)) {
+                //alert(navigator.userAgent);
+                window.location.href = "Android.html";
+            } else {
+                window.location.href = "pc.html";
+            }
+        }
+
+        </script>
+
+    </body>
+</html>

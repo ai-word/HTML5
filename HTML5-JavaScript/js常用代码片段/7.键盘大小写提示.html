@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>检测大写锁定键</title>
+    <script type="text/javascript" src="enview/js/jquery-1.10.1.min.js"></script>
+    <style type="text/css">
+        <!--
+        *{margin:0;padding:0;}
+        body{padding:2em;background:#242424;color:#ccc;}
+        h1{text-align:center;line-height:200%;}
+        h3{text-indent:1em;line-height:160%;color:#666;font-weight:normal;font-size:1em;}
+        h3 a{color:#bbb; text-decoration:none;margin:0 0.5em;}
+        h3 a:hover{color:#fff;}
+        p{margin:5em;}
+        span{margin:0 0.5em;font-size:85.7%;}
+        -->
+    </style>
+</head>
+
+<body>
+<h1>检测大写锁定键&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+<form action="#" method="post">
+    <p><label for="password">密码：</label><input type="text" id="password" name="password" /><span class="showhide" style="display:none;">大写锁定键被按下，请注意大小写</span></p >
+</form>
+<script type="text/javascript">
+
+    function  detectCapsLock(event){
+        var e = event||window.event;
+        var keyCode  =  e.keyCode||e.which; // 按键的keyCode
+        var isShift  =  e.shiftKey ||(keyCode  ==   16 ) || false ; // shift键是否按住
+        if (
+                ((keyCode >=   65   &&  keyCode  <=   90 )  &&   !isShift) // Caps Lock 打开，且没有按住shift键
+                || ((keyCode >=   97   &&  keyCode  <=   122 )  &&  isShift)// Caps Lock 打开，且按住shift键
+        ){
+            $(".showhide").css("display","inline-block");
+        }
+        else{$(".showhide").css("display","none");}
+    }
+    document.getElementById('password').onkeypress = detectCapsLock;
+
+</script>
+</body>
+</html>
