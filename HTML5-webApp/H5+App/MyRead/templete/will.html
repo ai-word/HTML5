@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<style type="text/css">
+			.newbook{
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a href="home.html" class="mui-icon mui-pull-left"><span class="mui-icon-left-nav">首页</span></a>
+			<h1 class="mui-title">书架专题</h1>
+		</header>
+		
+		<div class="mui-badge"  style="background-color:#fff">
+		    <h4 class="newbook">新书推荐</h4>
+		    <ul class="mui-table-view mui-grid-view">
+		        <li class="mui-table-view-cell mui-media mui-col-xs-12">
+		            <a href="#">
+		                <img class="mui-media-object" src="../img/xs.jpg">
+		            </a>
+		        </li>
+		    </ul>
+		     <ul class="mui-table-view mui-grid-view">
+		        <li class="mui-table-view-cell mui-media mui-col-xs-3">
+		            <a href="page.html">
+		                <img class="mui-media-object" src="../img/t01.jpg">
+		            </a>
+		        </li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-3">
+		            <a href="page.html">
+		                <img class="mui-media-object" src="../img/t02.jpg">
+		            </a>
+		        </li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-3">
+		            <a href="page.html">
+		                <img class="mui-media-object" src="../img/t01.jpg">
+		            </a>
+		        </li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-3">
+		            <a href="page.html">
+		                <img class="mui-media-object" src="../img/t02.jpg">
+		            </a>
+		        </li>
+		    </ul>
+		    
+		    
+		   
+		 </div>
+		 <br />
+		 <div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view kk" style="background-color: white;">
+					<li class="tableView-cell">
+						
+					</li>
+				</ul>
+			</div>
+			
+			
+		<script src="../js/mui.js" ></script>
+	<script type="text/javascript" charset="utf-8">
+	
+	(function($) {
+		//阻尼系数
+		var deceleration = mui.os.ios ? 0.003 : 0.0009;
+		$('.mui-scroll-wrapper').scroll({
+			bounce: false,
+			indicators: true, //是否显示滚动条
+			deceleration: deceleration
+		});
+	})(mui);
+
+	var table = document.body.querySelector('.kk');
+	
+	mui.plusReady(function(){
+		
+		mui.ajax('http://api.maoyan.com/mmdb/movie/lp/list.json?utm_campaign=AmovieBmovieCD100&movieBundleVersion=6410&utm_source=baidumobile1&utm_medium=android&utm_term=6.4.1&utm_content=865983027494161&ci=20&net=255&dModel=2014501&uuid=E33AB822B8DCBAD7B494ACD565B57C851DEB94D55A9C81CDE575FAA8B2DB98AA%22',{
+		
+		dataType:'json',//服务器返回json格式数据
+		type:'get',//HTTP请求类型
+		success:function(data){
+			//获得服务器响应
+//			console.log("$"+data); 
+			var data= data["data"];
+//			console.log(ltitle);
+			mui.each(data,function(index,item){
+//				console.log(index);
+				var li = document.createElement('li');
+				
+				li.url = item.url;//详情url
+				li.title = item.name;
+				li.className = 'tableView-cell';
+				
+				li.innerHTML = 
+				'<div class="mui-card"><div class="mui-card-header mui-card-media" style="height:40vw;background-image:url('
+				+ item.img +')"></div><div class="mui-card-content"><div class="mui-card-content-inner"><h3>'
+				+ item.movieName +'</h3><p style="color: #333;">'
+				+item.name+'</p></div></div><div class="mui-card-footer"><a class="mui-card-link">'
+				+ item.originName +'</a><a class="mui-card-link" href="'
+				+ item.url +'">播放</a></div></div>';
+				
+				table.appendChild(li,table.firstChild);
+				
+			});
+		
+		}
+	});
+	
+	})
+	var aniShow = "pop-in";
+		mui('.mui-content').on('tap', 'li', function() {  
+			mui.openWindow({
+				url: 'detail.html',
+				id: 'detail',
+				show: {
+					aniShow: 'slide-in-right' /*页面切换效果*/
+				},
+				extras: {
+					detailUrl: this.url,
+					detailTitle: this.title
+				},
+			});
+		});		
+		
+		
+	</script>
+		
+		
+	</body>
+	
+	
+</html>

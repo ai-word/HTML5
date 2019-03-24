@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="about">
+  <text>产品名称：城市天气</text>
+  <text>数据来源：数据</text>
+  <text>开发时间：2016年11月10日</text>
+  </view>
+  <view class="about aboutme">
+    <text class="title">作者</text>
+    <text>刘玉刚</text>
+    <text class="title">邮箱</text>
+    <text>huayue430@163.com</text>
+    <text class="title">博客</text>
+    <text>http://blog.csdn.net/baihuaxiu123/</text>
+    <text class="title">GitHub</text>
+    <text>http://blog.csdn.net/baihuaxiu123</text>
+  </view>
+</view>

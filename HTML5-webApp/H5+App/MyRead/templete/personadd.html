@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>MyRead</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<style type="text/css">
+			.img{
+				margin: 10px 0;text-align: center;
+			}
+			.img img{
+				width: 60px;height: 60px;
+				border-radius: 25px;
+				
+			}
+			.mui-content-padded{
+				padding: 10px;
+			}
+			.name{
+				line-height: 50px;color: #000000;font-size: medium;
+			}
+			.tx_right{
+				float: right;
+				text-align: center;
+			}
+			.ff{
+				float: right;
+				padding-right: 20px;
+				
+			}
+			.like{
+				margin: 10px 0;
+			}
+			#tc{
+				text-align: center;color: red;
+				font-size: 18px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-right">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="content">
+							<p style="margin: 30px 15px;">
+								<button id="offCanvasHide" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 5px 20px;">我的设置</button>
+							</p>
+						</div>
+						<div class="like">
+						<ul class="mui-table-view like">
+							<li class="mui-table-view-cell mui-media">
+								阅读时不自动锁屏
+								<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								阅读时隐藏他人的想法
+								<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								使用音量键翻页
+								<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								阅读时横屏
+								<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								首行缩进
+								<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							
+						</ul>
+						</div>
+						<ul class="mui-table-view like">
+							<li class="mui-table-view-cell">
+								接受推送信息
+								<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>	
+
+						</ul>
+						<ul class="mui-table-view like">
+							<li class="mui-table-view-cell">
+								接收新关注提醒
+								<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>	
+
+						</ul>
+						<p>关闭后，其他用户关注你时，“我的关注”不出现红点</p>
+						<ul class="mui-table-view like">
+							
+							<li class="mui-table-view-cell">
+								<a>清楚缓存</a>
+							</li>	
+
+						</ul>
+						
+						<ul class="mui-table-view like">
+							<li class="mui-table-view-cell">
+							<a id="tc" href="login.html">退出登录</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a id="offCanvasBtn" href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+					<h1 class="mui-title">"旅途有你</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="mui-content-padded" style="background: white;">
+							<div class="img">
+								<img src="../img/s01.jpg"/>
+								
+								<h5>摸摸头，拍拍手，咬咬牙！</h5>
+							</div>
+							
+						</div>
+						<div class="mui-card">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../img/s10.jpg">
+									<div class="mui-media-body">
+										<span class="name">账户</span>
+										<div class="tx_right">
+											<span>44.00</span>
+											<p>已购14本书</p>
+										</div>
+										
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../img/s02.jpg">
+									<div class="mui-media-body">
+										<span class="name">好友排名</span>
+										<div class="tx_right">
+											<span class="">第3名</span>
+											<p>1小时50分</p>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+						</div>
+						
+						<div class="mui-card">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../img/s01.jpg">
+									<div class="mui-media-body">
+										<span class="name">笔记</span>
+										<div class="tx_right">
+											<span>4个</span>
+											<p>获得2赞0评论</p>
+										</div>
+										
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../img/s03.jpg">
+									<div class="mui-media-body">
+										<span class="name">收藏</span>
+										<span class="ff">7本</span>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../img/s04.jpg">
+									<div class="mui-media-body">
+										<span class="name">关注</span>
+										<div class="tx_right">
+											<span class="">10人关注我</span>
+											<p>我已关注10人</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+						</ul>
+
+						</div>
+						
+
+					</div>
+				</div>
+				 <!--off-canvas backdrop--> 
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+			});
+			 //侧滑容器父节点
+			var offCanvasWrapper = mui('#offCanvasWrapper');
+			 //主界面容器
+			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+			 //菜单容器
+			var offCanvasSide = document.getElementById("offCanvasSide");
+			 //Android暂不支持整体移动动画
+			if (!mui.os.android) {
+				document.getElementById("move-togger").classList.remove('mui-hidden');
+				var spans = document.querySelectorAll('.android-only');
+				for (var i = 0, len = spans.length; i < len; i++) {
+					spans[i].style.display = "none";
+				}
+			}
+			 //移动效果是否为整体移动
+			var moveTogether = false;
+			 //侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+			var classList = offCanvasWrapper[0].classList;
+			 //变换侧滑动画移动效果；
+			mui('.mui-input-group').on('change', 'input', function() {
+				if (this.checked) {
+					offCanvasSide.classList.remove('mui-transitioning');
+					offCanvasSide.setAttribute('style', '');
+					classList.remove('mui-slide-in');
+					classList.remove('mui-scalable');
+					switch (this.value) {
+						case 'main-move':
+							if (moveTogether) {
+								//仅主内容滑动时，侧滑菜单在off-canvas-wrap内，和主界面并列
+								offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+								moveTogether = false;
+							}
+							break;
+						case 'main-move-scalable':
+							if (moveTogether) {
+								//仅主内容滑动时，侧滑菜单在off-canvas-wrap内，和主界面并列
+								offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+							}
+							classList.add('mui-scalable');
+							break;
+						case 'menu-move':
+							classList.add('mui-slide-in');
+							break;
+						case 'all-move':
+							moveTogether = true;
+							//整体滑动时，侧滑菜单在inner-wrap内
+							offCanvasInner.insertBefore(offCanvasSide, offCanvasInner.firstElementChild);
+							break;
+					}
+					offCanvasWrapper.offCanvas().refresh();
+				}
+			});
+
+			 //主界面和侧滑菜单界面均支持区域滚动；
+			mui('#offCanvasSideScroll').scroll();
+			mui('#offCanvasContentScroll').scroll();
+			 //实现ios平台的侧滑关闭页面；
+			if (mui.os.plus && mui.os.ios) {
+				offCanvasWrapper[0].addEventListener('shown', function(e) { //菜单显示完成事件
+					plus.webview.currentWebview().setStyle({
+						'popGesture': 'none'
+					});
+				});
+				offCanvasWrapper[0].addEventListener('hidden', function(e) { //菜单关闭完成事件
+					plus.webview.currentWebview().setStyle({
+						'popGesture': 'close'
+					});
+				});
+			}
+		</script>
+	
+		
+	</body>
+</html>

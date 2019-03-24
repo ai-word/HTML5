@@ -1,0 +1,146 @@
+{
+	"index.html": {
+		"resources": [
+			"templete/home.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"templete/home.html",
+			"templete/chat.html",
+			"templete/bookcase.html",
+			"templete/personadd.html"
+		]
+	},
+	"templete/home.html": {
+		"resources": [
+			"img/x06.png",
+			"img/x07.jpg",
+			"img/x03.jpg",
+			"img/x05.png",
+			"img/t07.png",
+			"img/a01.jpg",
+			"img/x02.png",
+			"img/xs.jpg",
+			"img/t06.jpg",
+			"img/a03.jpg",
+			"img/t05.jpg",
+			"img/x08.jpg",
+			"img/cx.jpg",
+			"img/a04.jpg",
+			"img/t03.jpg",
+			"img/t02.jpg",
+			"img/t08.jpg",
+			"img/x04.jpg",
+			"img/x01.jpg",
+			"img/a05.jpg",
+			"img/xx.jpg",
+			"img/mr.jpg",
+			"img/t01.jpg",
+			"img/t04.jpg",
+			"img/a02.jpg",
+			"templete/page.html",
+			"templete/will.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"templete/readpage.html"
+		],
+		"refer": [
+			"templete/page.html",
+			"templete/will.html",
+			"templete/readpage.html"
+		]
+	},
+	"templete/chat.html": {
+		"resources": [
+			"video/俞敏洪-摆脱恐惧.mp4",
+			"js/mui.js"
+		],
+		"refer": [
+			"templete/detail.html"
+		]
+	},
+	"templete/bookcase.html": {
+		"resources": [
+			"img/z03.jpg",
+			"img/z04.jpg",
+			"img/z07.jpg",
+			"img/z06.jpg",
+			"img/z08.jpg",
+			"img/z01.jpg",
+			"img/z05.jpg",
+			"img/z02.jpg",
+			"templete/bookscon.html"
+		],
+		"refer": [
+			"templete/bookscon.html"
+		]
+	},
+	"templete/personadd.html": {
+		"resources": [
+			"img/s10.jpg",
+			"img/s03.jpg",
+			"img/s01.jpg",
+			"img/s04.jpg",
+			"img/s02.jpg"
+		]
+	},
+	"templete/bookscon.html": {
+		"resources": [
+			"templete/bookcase.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"templete/home.html"
+		],
+		"refer": [
+			"templete/bookcase.html",
+			"templete/home.html"
+		]
+	},
+	"templete/page.html": {
+		"resources": [
+			"img/dldx.jpg",
+			"templete/home.html",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"templete/bookscon.html"
+		],
+		"refer": [
+			"templete/home.html",
+			"templete/bookscon.html"
+		]
+	},
+	"templete/will.html": {
+		"resources": [
+			"img/t02.jpg",
+			"img/xs.jpg",
+			"js/mui.js",
+			"img/t01.jpg",
+			"templete/home.html"
+		],
+		"refer": [
+			"templete/home.html"
+		]
+	},
+	"templete/readpage.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"img/dldx.jpg",
+			"templete/readbook.html"
+		],
+		"refer": [
+			"templete/readbook.html"
+		]
+	},
+	"templete/readbook.html": {
+		"resources": [
+			"templete/bookcase.html"
+		],
+		"refer": [
+			"templete/bookcase.html"
+		]
+	}
+}

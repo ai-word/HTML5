@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>信息列表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/app.css" />
+		<style>
+			.head-part {
+				padding-top: 10px;
+			}
+			.head-part #auther {
+				height: 30px;
+				line-height: 30px;
+				margin-left: 70px;
+			}
+			.head-part #currentDate {
+				height: 30px;
+				width: 300px;
+				line-height: 30px;
+				margin-left: 70px;
+				font-size: 14px;
+			}
+			.head-part .about-type {
+				float: right;
+				margin-right: 10px;
+				text-align: right;
+				text-overflow:ellipsis;
+				overflow:hidden;
+				white-space:nowrap; 
+				width: 100px;
+				color: red;
+			}
+			#headImage {
+				width: 60px;
+				height: 60px;
+				border-radius: 30px;
+				display: block;
+				position: absolute;
+				float: left;
+			}
+			#titleConcent {
+				height: 110px;
+			}
+			#mainImage {
+				padding-right: 10px;
+				width: 100px;
+				height: 100px;
+				float: right;
+			}
+			#titleConcent1 {
+				margin-top: 10px;
+				height: 100px;
+				text-overflow:ellipsis;
+				overflow:hidden;
+				line-height: 25px;
+			}
+			.mui-scroll .mui-table-view {
+				padding-left: 10px;
+			}
+			.tableView-cell {
+				list-style-type: none;
+				/*设置下边框样式*/
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-bottom-color: #D3D3D3;
+			}
+			.mui-content{
+				padding-top: 44px;
+			}
+			.mui-table-view:before{
+				0px;
+			}
+			.mui-table-view:after{
+				0px;
+			}
+		</style> 
+	
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a href="#" class=" mui-pull-right mui-icon"><span class="mui-icon-right-nav">更多</span></a>
+			<h1 class="mui-title">信息列表</h1> 
+		</header>
+		<div class="mui-content">
+			
+			<video id="video" width="100%" src="../video/俞敏洪-摆脱恐惧.mp4" controls autoplay loop >
+				
+			</video>
+			<div style="text-align: center;" >
+				  <button onclick="document.getElementById('video').play()">播放</button>
+				  <button onclick="document.getElementById('video').pause()">暂停</button>
+				  <button onclick="document.getElementById('video').volume+=0.1">提高音量</button>
+				  <button onclick="document.getElementById('video').volume-=0.1">降低音量</button>
+			</div> 	
+			
+			<ul id="OA_task_1" class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+					            <div class="mui-table">
+					                <div class="mui-table-cell mui-col-xs-10">
+					                    <h4 class="mui-ellipsis">
+					                    		《如何阅读一本书》
+					                    </h4>
+					                    <p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+					                </div>
+					                <div class="mui-table-cell mui-col-xs-2 mui-text-right">
+					                    <span class="mui-h5">07-25</span>
+					                </div>
+					          </div> 
+					</div>
+				</li>
+				
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+					            <div class="mui-table">
+					                <div class="mui-table-cell mui-col-xs-10">
+					                    <h4 class="mui-ellipsis">
+					                    		《如何阅读一本书》
+					                    </h4>
+					                    <p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+					                </div>
+					                <div class="mui-table-cell mui-col-xs-2 mui-text-right">
+					                    <span class="mui-h5">07-25</span>
+					                </div>
+					          </div> 
+					</div>
+				</li>
+				
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+					            <div class="mui-table">
+					                <div class="mui-table-cell mui-col-xs-10">
+					                    <h4 class="mui-ellipsis">
+					                    		《如何阅读一本书》
+					                    </h4>
+					                    <p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+					                </div>
+					                <div class="mui-table-cell mui-col-xs-2 mui-text-right">
+					                    <span class="mui-h5">07-25</span>
+					                </div>
+					          </div> 
+					</div>
+				</li>
+				
+				
+			</ul>
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view" style="background-color: white;">
+					<li class="tableView-cell">
+						
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	</body>
+		<script src="../js/mui.js" ></script>
+		<script type="text/javascript">
+//			mui.init();
+			(function($) {
+				$('#OA_task_1').on('tap', '.mui-btn', function(event) {
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+						if (e.index == 0) {
+							li.parentNode.removeChild(li);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+				var btnArray = ['确认', '取消'];
+				//第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
+				
+				//阻尼系数
+				var deceleration = mui.os.ios ? 0.003 : 0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration: deceleration
+				});
+				
+				
+			})(mui);
+			
+			var table = document.body.querySelector('.mui-table-view');
+	
+			mui.plusReady(function(){
+			mui.ajax('http://c.m.163.com/nc/article/list/T1348648650048/0-20.html',{
+			
+			dataType:'json',//服务器返回json格式数据
+			type:'get',//HTTP请求类型
+			success:function(data){
+				//获得服务器响应
+	//			console.log("$"+data); 
+				var data= data["T1348648650048"];
+	//			console.log(ltitle);
+				mui.each(data,function(index,item){
+	//				console.log(index);
+					var li = document.createElement('li');
+					
+					li.url = item.url_3w;//详情url
+					li.title = item.title;
+					li.className = 'tableView-cell';
+					
+					li.innerHTML = '<div class="head-part">'
+						+ '<img src="' + item.imgsrc + '"/ id="headImage">'
+						+ '<div class="about-auther">'
+						+ '<div id="auther">'
+						+ item.source 
+						+ '</div><div id="currentDate"><h5>'
+						+ item.lmodify + '</h5></div></div></div><div id="titleConcent">'
+						+ '<a href="' + item.url + '" ><img src=" '+ item.imgsrc + '" id="mainImage"/><div id="titleConcent1">'
+						+ item.ltitle +'<h5>'+item.digest+'</h5></a></div></div>';
+						
+						
+						table.appendChild(li,table.firstChild);;
+						
+					});
+				
+				}
+			});
+			
+			});
+			var aniShow = "pop-in";
+				mui('.mui-content').on('tap', 'li', function() {  
+					mui.openWindow({
+						url: 'detail.html',
+						id: 'detail',
+						show: {
+							aniShow: 'slide-in-right' /*页面切换效果*/
+						},
+						extras: {
+							detailUrl: this.url,
+							detailTitle: this.title
+						},
+					});
+				});		
+			
+			
+		</script>
+	
+</html>

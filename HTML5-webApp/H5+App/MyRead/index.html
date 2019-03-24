@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>MyRead</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<nav class="mui-bar mui-bar-tab">
+            <a id="defaultTab" class="mui-tab-item mui-active" href="templete/home.html">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            
+            <a class="mui-tab-item" href="templete/bookcase.html">
+                <span class="mui-icon mui-icon-navigate"></span>
+                <span class="mui-tab-label">书架</span>
+            </a>
+            <a class="mui-tab-item" href="templete/chat.html">
+                <span class="mui-icon mui-icon-chat"></span>
+                <span class="mui-tab-label">信息</span>
+            </a>
+            <a class="mui-tab-item" href="templete/personadd.html">
+                <span class="mui-icon mui-icon-personadd"></span>
+                <span class="mui-tab-label">我的</span>
+            </a>
+       </nav>
+       
+       
+       <script type="text/javascript" charset="utf-8">
+      	
+      	//初始化
+      	mui.init();
+      	
+      	//跳转页面
+      	var subpages = ['templete/home.html','templete/bookcase.html', 'templete/chat.html', 'templete/personadd.html'];
+		var subpage_style = {
+			top: '0px',
+			bottom: '51px'
+		};
+			
+		var aniShow = {};
+      	
+      	
+      	
+      	//首次启动切滑效果
+      	mui.plusReady(function(){
+      		launchScreen();
+      		
+      		var self = plus.webview.currentWebview();
+				for (var i = 0; i < 4; i++) {
+					var temp = {}; 
+					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+					if (i > 0) {
+						sub.hide();
+					}else{
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow,temp);
+					}
+					self.append(sub);
+				}
+			});
+			 //当前激活选项
+			var activeTab = subpages[0];
+			var title = document.getElementById("title");
+			 //选项卡点击事件
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				if (targetTab == activeTab) {
+					return;
+				}
+				//更换标题
+//				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				//显示目标选项卡
+				//若为iOS平台或非首次显示，则直接显示
+				if(mui.os.ios||aniShow[targetTab]){
+					plus.webview.show(targetTab);
+				}else{
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow,temp);
+					plus.webview.show(targetTab,"fade-in",300);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			});
+			 //自定义事件，模拟点击“首页选项卡”
+			document.addEventListener('gohome', function() {
+				var defaultTab = document.getElementById("defaultTab");
+				//模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				//切换选项卡高亮
+				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+				if (defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+      
+	});
+	
+	
+	 function launchScreen() {
+		//读取本地存储，检查是否为首次启动
+		var showGuide = plus.storage.getItem("lauchFlag");
+		if(showGuide){ 
+			//有值，说明已经显示过了，无需显示；
+			//关闭splash页面；
+			plus.navigator.closeSplashscreen();
+			plus.navigator.setFullscreen(false);
+		}else{
+			//显示启动导航
+			mui.openWindow({
+				id:'guid',
+				url:'templete/guid.html',
+				show:{
+					aniShow:'none'
+				},
+				waiting:{
+					autoShow:false
+				}
+			});
+		}
+	}
+    </script>
+	
+	
+</body>
+</html>
