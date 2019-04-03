@@ -20,6 +20,7 @@
   justify-content: center;
   align-items: center;
   line-height: 32px;
+  z-index:1000;
   .nav_b{
     .nav_title{
       color: #fefefe;
