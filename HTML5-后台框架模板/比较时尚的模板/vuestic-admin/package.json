@@ -69,7 +69,7 @@
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "2.0.0",
     "lint-staged": "^7.2.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "opn": "5.4.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "ora": "3.0.0",
